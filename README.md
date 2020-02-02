@@ -6,7 +6,7 @@ A personal *python 2* project to generate a directed graph of data retrieved fro
 ## How it works
 
 Basically, there is a folder called courses, with 7 specializations. Each specialization has its own folder. 
-Each folder contains several course outlines in .docx format. The code will look into these folders for course files, and search for specific keywords, like Course Code, Course Title, and Prerequisites. Data of these keywords is used to generate a graphviz dot format file. This file can then be use to generate the graph as shown below.
+Each folder contains several course outlines in .docx format. The code will look into these folders for course files, and search for specific keywords, like Course Code, Course Title, and Prerequisites. Data of these keywords is used to generate a graphviz dot format file. This file can then be use to generate the graph as shown above..
 
 ## How to run
 
