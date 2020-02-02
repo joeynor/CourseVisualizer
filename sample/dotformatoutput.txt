@@ -1,0 +1,58 @@
+digraph G {
+rankdir=LR
+node [style=filled height=0.55 fontname="Verdana" fontsize=10];
+subgraph cluster_key {
+ label="Specializations";
+"Programming" [shape=rectangle fillcolor="greenyellow"];
+"Mathematics" [shape=rectangle fillcolor="goldenrod2"];
+"Algorithms" [shape=rectangle fillcolor="salmon1"];
+"Computer Architecture and Digital Design" [shape=rectangle fillcolor="dodgerblue1"];
+"Software Engineering" [shape=rectangle fillcolor="coral"];
+"Network and Security" [shape=rectangle fillcolor="darkseagreen"];
+"Data Science and Computational Intelligence" [shape=rectangle fillcolor="crimson"];
+"Non DCS Course";
+"Programming" -> "Mathematics"[style=invis];
+"Mathematics" -> "Algorithms"[style=invis];
+"Algorithms" -> "Computer Architecture and Digital Design"[style=invis];
+"Software Engineering" -> "Network and Security"[style=invis];
+"Network and Security" -> "Data Science and Computational Intelligence"[style=invis];
+"Data Science and Computational Intelligence" -> "Non DCS Courses"[style=invis];
+}
+{ node [margin=0.1 shape=rectangle style=filled]
+"A 1100\nCourse A" [fillcolor="greenyellow"]
+"B 1100\nCourse B" [fillcolor="goldenrod2"]
+"C 2100\nCourse C" [fillcolor="salmon1"]
+"D 2100\nCourse D" [fillcolor="salmon1"]
+"E 3100\nCourse E" [fillcolor="dodgerblue1"]
+"F 3100\nCourse F" [fillcolor="coral"]
+"G 4100\nCourse G" [fillcolor="darkseagreen"]
+"H 4100\nCourse H" [fillcolor="crimson"]
+}
+{ rank=same; 
+"A 1100\nCourse A";
+"B 1100\nCourse B";
+}
+{ rank=same; 
+"C 2100\nCourse C";
+"D 2100\nCourse D";
+}
+{ rank=same; 
+"E 3100\nCourse E";
+"F 3100\nCourse F";
+}
+{ rank=same; 
+"G 4100\nCourse G";
+"H 4100\nCourse H";
+}
+    "DCS Program\n" ->  "A 1100\nCourse A";
+    "DCS Program\n" ->  "B 1100\nCourse B";
+    "A 1100\nCourse A" ->  "C 2100\nCourse C";
+    "B 1100\nCourse B" ->  "C 2100\nCourse C";
+    "A 1100\nCourse A" ->  "D 2100\nCourse D";
+    "D 2100\nCourse D" ->  "E 3100\nCourse E";
+    "C 2100\nCourse C" ->  "F 3100\nCourse F";
+    "D 2100\nCourse D" ->  "F 3100\nCourse F";
+    "E 3100\nCourse E" ->  "G 4100\nCourse G";
+    "E 3100\nCourse E" ->  "H 4100\nCourse H";
+    "F 3100\nCourse F" ->  "H 4100\nCourse H";
+}
