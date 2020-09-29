@@ -67,61 +67,61 @@ for dir in specialization:
                     course_title = " ".join(z[2:])
                     course_dict[result2] = {}
                     course_dict[result2]={'title':result1,'area':dir,'prereq':{course_code:course_title}}
-print "digraph G {"
-print "rankdir=LR"
-print "node [style=filled height=0.55 fontname=\"Verdana\" fontsize=10];"
-print "subgraph cluster_key {"
-print " label=\"Specializations\";"
+print ("digraph G {")
+print ("rankdir=LR")
+print ("node [style=filled height=0.55 fontname=\"Verdana\" fontsize=10];")
+print ("subgraph cluster_key {")
+print (" label=\"Specializations\";")
 for s in specialization:
-    print "\""+specialization[s]+"\" [shape=rectangle fillcolor=\""+color[s]+"\"];"
+    print ("\""+specialization[s]+"\" [shape=rectangle fillcolor=\""+color[s]+"\"];")
 prev = 1;
-print "\"Non DCS Course\";"
+print ("\"Non DCS Course\";")
 for s in specialization:
     if s==1 or s==5:
         prev=s
     else:
-        print "\"" + specialization[prev] + "\" -> \"" + specialization[s] + "\"[style=invis];"
+        print ("\"" + specialization[prev] + "\" -> \"" + specialization[s] + "\"[style=invis];")
         prev = s
     if s==7:
-        print "\"" + specialization[s] + "\" -> \"Non DCS Courses\"[style=invis];"
+        print ("\"" + specialization[s] + "\" -> \"Non DCS Courses\"[style=invis];")
 
-print "}"        
+print ("}")        
 
-print "{ node [margin=0.1 shape=rectangle style=filled]"
+print ("{ node [margin=0.1 shape=rectangle style=filled]")
 for cc in sorted(course_dict):
-    print "\""+cc+ "\\n"+course_dict[cc]['title']+"\" [fillcolor=\""+color[course_dict[cc]['area']]+"\"]"
-print "}"
+    print ("\""+cc+ "\\n"+course_dict[cc]['title']+"\" [fillcolor=\""+color[course_dict[cc]['area']]+"\"]")
+print ("}")
 #for the rank 2000 below
-print "{ rank=same; "
+print ("{ rank=same; ")
 for cc in sorted(course_dict):
     test = cc.split(" ")
     if int(test[1])<2000:
-        print "\""+cc+ "\\n"+course_dict[cc]['title']+"\";"
-print "}"
+        print ("\""+cc+ "\\n"+course_dict[cc]['title']+"\";")
+print ("}")
 #for the rank 3000 below
-print "{ rank=same; "
+print ("{ rank=same; ")
 for cc in sorted(course_dict):
     test = cc.split(" ")
     if 2000<int(test[1])<3000:
-        print "\""+cc+ "\\n"+course_dict[cc]['title']+"\";"
-print "}"
+        print ("\""+cc+ "\\n"+course_dict[cc]['title']+"\";")
+print ("}")
 #for the rank 4000 above
-print "{ rank=same; "
+print ("{ rank=same; ")
 for cc in sorted(course_dict):
     test = cc.split(" ")
     if 3000<int(test[1])<4000:
-        print "\""+cc+ "\\n"+course_dict[cc]['title']+"\";"            
-print "}"
+        print ("\""+cc+ "\\n"+course_dict[cc]['title']+"\";")            
+print ("}")
 #for the rank 4000 above
-print "{ rank=same; "
+print ("{ rank=same; ")
 for cc in sorted(course_dict):
     test = cc.split(" ")
     if int(test[1])>4000:
-        print "\""+cc+ "\\n"+course_dict[cc]['title']+"\";"            
-print "}"
+        print ("\""+cc+ "\\n"+course_dict[cc]['title']+"\";")            
+print ("}")
 
 for cc in sorted(course_dict):
     for prereqcc in sorted(course_dict[cc]['prereq']):
-        print "    \""+prereqcc+"\\n"+course_dict[cc]['prereq'][prereqcc]+"\" -> " + " \"" +cc+ "\\n" +course_dict[cc]['title']+"\";"
+        print ("    \""+prereqcc+"\\n"+course_dict[cc]['prereq'][prereqcc]+"\" -> " + " \"" +cc+ "\\n" +course_dict[cc]['title']+"\";")
 
-print "}"
+print ("}")
