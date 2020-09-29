@@ -1,5 +1,5 @@
 # CourseVisualizer
-A personal *python 2* project to generate a directed graph of data retrieved from docx files. The doc files is the course outlines, and have interdependencies with other courses. 
+A personal *python 3* project to generate a directed graph of data retrieved from docx files. The doc files is the course outlines, and have interdependencies with other courses. 
 
 ![Screenshot](https://github.com/joeynor/CourseVisualizer/blob/master/sample/mygraph.png)
 
@@ -10,7 +10,7 @@ Each folder contains several course outlines in .docx format. The code will look
 
 ## How to run
 
-1. You will definitely need python 2. I didnt use python 3 due to instability of the python-docx library in python3 for now. I will figure it out later, and will upgrade in the future
+1. You will definitely need python 3. 
 
 2. Instaling the third party python-docx module, not the docx. I use pip
 ```
